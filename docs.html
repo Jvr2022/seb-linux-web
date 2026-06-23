@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Safe Exam Browser Linux - open-source secure exam browser for Linux">
+    <meta name="author" content="SEB Linux Contributors">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=gAEABXnBxw">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png?v=gAEABXnBxw" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png?v=gAEABXnBxw" sizes="16x16">
+    <link rel="manifest" href="/manifest.json?v=gAEABXnBxw">
+    <link rel="shortcut icon" href="/favicon.ico?v=gAEABXnBxw">
+    <meta name="application-name" content="SEB Linux">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Safe Exam Browser Linux - Documentation</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Docs CSS -->
+    <link href="css/docs.min.css" rel="stylesheet">
+    <!-- Custom -->
+    <link href="css/basic.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="index.html" class="navbar-brand">
+                  <span><img class="sebbrandimg" src="images/SEBIcon_40_2x.png" alt="SEB Logo" width="40"></span>
+                  Safe&nbsp;Exam&nbsp;Browser&nbsp;Linux
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="schools.html">For Schools</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="https://github.com/Jvr2022/seb-linux" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container bs-docs-container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="page-header">Documentation <small>Build and Usage</small></h1>
+          <ol class="breadcrumb">
+            <li class="active">English</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Content Row -->
+      <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+          <div class="list-group">
+            <a href="index.html" class="list-group-item">Home</a>
+            <a href="about.html" class="list-group-item">About</a>
+            <a href="schools.html" class="list-group-item">For Schools</a>
+            <a href="download.html" class="list-group-item">Download</a>
+            <a href="docs.html" class="list-group-item active">Documentation</a>
+            <a href="sponsors.html" class="list-group-item">Sponsors</a>
+            <a href="support.html" class="list-group-item">Support</a>
+            <a href="https://github.com/Jvr2022/seb-linux" class="list-group-item" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="col-md-9" role="main">
+          <h2></h2>
+          <h2 class="page-header sebnavbar-link">Documentation</h2>
+
+          <h3 class="page-header seb-section-header sebnavbar-link" id="building">Building SEB Linux</h3>
+
+          <h4 class="seb-section-header sebnavbar-link" id="building-quick">Quick Start</h4>
+          <pre><code class="codetext">git clone https://github.com/Jvr2022/seb-linux.git
+cd seb-linux
+./scripts/dependencies.sh  # Install build dependencies
+./scripts/build.sh          # Configure and build
+./build/bin/safe-exam-browser --version</code></pre>
+
+          <h4 class="seb-section-header sebnavbar-link" id="building-options">Build Options</h4>
+          <table class="table sebtable">
+            <thead>
+              <tr class="seb-table-header">
+                <th>Option</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>SEB_FORCE_QTWEBENGINE</code></td><td>Use the QtWebEngine browser engine (default)</td></tr>
+              <tr><td><code>SEB_FORCE_WEBKITGTK</code></td><td>Use the WebKitGTK browser engine (fallback)</td></tr>
+            </tbody>
+          </table>
+
+          <h4 class="seb-section-header sebnavbar-link" id="building-engines">Browser Engines</h4>
+          <p>SEB Linux supports two browser engines. By default it picks the best one available on your system. You only need the dependencies for the engine you are using.</p>
+
+          <h4 class="seb-section-header sebnavbar-link" id="building-ccache">Faster Rebuilds</h4>
+          <p>The build system automatically uses ccache when available, which makes repeated builds much faster after the first build. A precompiled header also speeds up compilation.</p>
+
+          <h3 class="page-header seb-section-header sebnavbar-link" id="running">Running SEB Linux</h3>
+          <pre><code class="codetext">./build/bin/safe-exam-browser</code></pre>
+          <p>When launched, SEB will ask for administrator permission to lock down the system. This is normal and ensures the exam environment is secure.</p>
+
+          <h4 class="seb-section-header sebnavbar-link" id="running-config">Opening a Configuration File</h4>
+          <pre><code class="codetext">./build/bin/safe-exam-browser /path/to/exam.seb</code></pre>
+          <p>SEB can also open configuration files via <code>sebs://</code> or <code>seb://</code> links in a web browser.</p>
+
+          <h3 class="page-header seb-section-header sebnavbar-link" id="appimage">Building an AppImage</h3>
+          <p>To create a portable AppImage for distribution:</p>
+          <pre><code class="codetext">./scripts/build-release.sh 0.1.0</code></pre>
+
+          <h3 class="page-header seb-section-header sebnavbar-link" id="ci">Continuous Integration</h3>
+          <p>The project includes GitHub Actions workflows that build and test SEB Linux automatically on every change. This helps catch issues early and ensures the project stays in a working state.</p>
+
+          <h3 class="page-header seb-section-header sebnavbar-link" id="troubleshooting">Troubleshooting</h3>
+
+          <h4 class="seb-section-header sebnavbar-link" id="troubleshooting-polkit">Authentication Problems</h4>
+          <p>If SEB fails to get permission to lock down the system, this is usually a system configuration issue. Common causes include a missing authentication agent (common on some window managers) or a missing system configuration file. Check your distribution documentation for polkit configuration.</p>
+
+          <h4 class="seb-section-header sebnavbar-link" id="troubleshooting-display">Display Problems</h4>
+          <p>Do not run SEB with <code>sudo</code> directly. The application handles permission elevation itself and forwards the necessary environment variables automatically.</p>
+
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- Footer -->
+      <footer>
+          <div class="row">
+              <div class="col-lg-12">
+                  <p>Safe Exam Browser Linux is an open-source community project. Based on <a href="https://safeexambrowser.org" target="_blank">Safe Exam Browser</a> by ETH Zurich.<br>
+                  Licensed under the Mozilla Public License 2.0. See <a href="LICENSE">LICENSE</a> for details.</p>
+              </div>
+          </div>
+      </footer>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap Docs (for Sidebar) JavaScript -->
+    <script src="js/docs.min.js"></script>
+
+</body>
+
+</html>
